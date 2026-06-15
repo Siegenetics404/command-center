@@ -100,7 +100,7 @@ function LoginForm({
                 <button
                     type="submit"
                     disabled={processing}
-                    className="w-full flex items-center justify-center px-4 py-2.5 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center px-4 py-2.5 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {processing ? (
                         <svg
@@ -241,7 +241,7 @@ function RegisterForm({ onSwitch }: { onSwitch: () => void }) {
                 <button
                     type="submit"
                     disabled={processing}
-                    className="w-full flex items-center justify-center px-4 py-2.5 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center px-4 py-2.5 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {processing ? (
                         <svg
@@ -296,8 +296,10 @@ function BrandPanel({ mode }: { mode: "login" | "register" }) {
             />
 
             <div className="relative flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold">B</span>
+                <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center">
+                    <span className="text-gray-900 text-sm font-semibold">
+                        B
+                    </span>
                 </div>
                 <span className="text-white/80 text-sm font-medium tracking-tight">
                     Breeze
@@ -320,12 +322,13 @@ function BrandPanel({ mode }: { mode: "login" | "register" }) {
                 >
                     <div className="space-y-3">
                         <p className="text-white/40 text-xs font-medium tracking-widest uppercase">
-                            Back on Track
+                            Welcome back
                         </p>
                         <h2 className="text-white text-4xl font-semibold tracking-tight leading-tight">
                             Built to move
                             <br />
-                            fast from day one.
+                            <span className="text-amber-400">fast</span> from
+                            day one.
                         </h2>
                         <p className="text-white/50 text-sm leading-relaxed max-w-xs">
                             React, TypeScript, Inertia, and Laravel — everything
@@ -340,10 +343,15 @@ function BrandPanel({ mode }: { mode: "login" | "register" }) {
                             "React",
                             "TypeScript",
                             "Tailwind",
-                        ].map((tag) => (
+                        ].map((tag, i) => (
                             <span
                                 key={tag}
-                                className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white/60 text-xs font-medium"
+                                className={[
+                                    "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium",
+                                    i === 0
+                                        ? "bg-amber-400/15 text-amber-400 ring-1 ring-amber-400/30"
+                                        : "bg-white/10 text-white/60",
+                                ].join(" ")}
                             >
                                 {tag}
                             </span>
@@ -367,7 +375,7 @@ function BrandPanel({ mode }: { mode: "login" | "register" }) {
                         <h2 className="text-white text-4xl font-semibold tracking-tight leading-tight">
                             Your next project
                             <br />
-                            starts here.
+                            <span className="text-amber-400">starts here.</span>
                         </h2>
                         <p className="text-white/50 text-sm leading-relaxed max-w-xs">
                             Set up once, ship forever. Breeze gives you a solid

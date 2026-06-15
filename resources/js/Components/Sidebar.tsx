@@ -76,7 +76,7 @@ export default function Sidebar() {
             {/* Mobile overlay */}
             <div
                 className={[
-                    "fixed inset-0 z-20 bg-black/30 backdrop-blur-sm transition-opacity duration-200 sm:hidden",
+                    "fixed inset-0 z-20 bg-black/50 backdrop-blur-sm transition-opacity duration-200 sm:hidden",
                     isOpen
                         ? "opacity-100 pointer-events-auto"
                         : "opacity-0 pointer-events-none",
@@ -88,14 +88,14 @@ export default function Sidebar() {
             {/* Sidebar panel */}
             <aside
                 className={[
-                    "fixed z-30 top-0 left-0 h-full flex flex-col bg-white border-r border-gray-100",
+                    "fixed z-30 top-0 left-0 h-full flex flex-col bg-gray-900 border-r border-gray-800",
                     "transition-[width] duration-200 ease-in-out overflow-hidden",
                     isOpen ? "w-64" : "w-0 sm:w-14",
                 ].join(" ")}
             >
                 <div className="flex flex-col h-full w-64">
                     {/* Header */}
-                    <div className="flex items-center h-16 px-3 border-b border-gray-100 shrink-0">
+                    <div className="flex items-center h-16 px-3 border-b border-gray-800 shrink-0">
                         <Link
                             href="/"
                             tabIndex={isOpen ? 0 : -1}
@@ -106,12 +106,12 @@ export default function Sidebar() {
                                     : "opacity-0 pointer-events-none",
                             ].join(" ")}
                         >
-                            <div className="w-7 h-7 rounded-lg bg-gray-900 flex items-center justify-center shrink-0">
-                                <span className="text-white text-xs font-semibold">
+                            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shrink-0">
+                                <span className="text-gray-900 text-xs font-semibold">
                                     B
                                 </span>
                             </div>
-                            <span className="text-sm font-semibold text-gray-900 tracking-tight truncate">
+                            <span className="text-sm font-semibold text-white tracking-tight truncate">
                                 Breeze
                             </span>
                         </Link>
@@ -123,7 +123,7 @@ export default function Sidebar() {
                             }
                             className={[
                                 "hidden sm:flex items-center justify-center w-8 h-8 rounded-lg",
-                                "text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors shrink-0",
+                                "text-gray-500 hover:text-white hover:bg-gray-800 transition-colors shrink-0",
                                 !isOpen && "absolute left-3",
                             ].join(" ")}
                             aria-label={
@@ -146,15 +146,15 @@ export default function Sidebar() {
                                     className={[
                                         "flex items-center gap-3 px-2 py-2 rounded-lg text-sm transition-colors",
                                         isActive
-                                            ? "bg-gray-100 text-gray-900 font-medium"
-                                            : "text-gray-500 hover:text-gray-900 hover:bg-gray-50",
+                                            ? "bg-gradient-to-r from-amber-400/15 to-amber-500/5 text-amber-400 font-medium ring-1 ring-amber-400/20"
+                                            : "text-gray-400 hover:text-white hover:bg-gray-800",
                                     ].join(" ")}
                                 >
                                     <span
                                         className={
                                             isActive
-                                                ? "text-gray-900 shrink-0"
-                                                : "text-gray-400 shrink-0"
+                                                ? "text-amber-400 shrink-0"
+                                                : "text-gray-500 shrink-0"
                                         }
                                     >
                                         {item.icon}
@@ -175,14 +175,14 @@ export default function Sidebar() {
                     </nav>
 
                     {/* Bottom — logout only */}
-                    <div className="px-2 py-3 border-t border-gray-100 shrink-0">
+                    <div className="px-2 py-3 border-t border-gray-800 shrink-0">
                         <button
                             onClick={() => router.post(route("logout"))}
                             title={!isOpen ? "Log out" : undefined}
-                            className="flex w-full items-center gap-3 px-2 py-2 rounded-lg text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+                            className="flex w-full items-center gap-3 px-2 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
                         >
                             <svg
-                                className="w-5 h-5 shrink-0 text-gray-400"
+                                className="w-5 h-5 shrink-0 text-gray-500"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
