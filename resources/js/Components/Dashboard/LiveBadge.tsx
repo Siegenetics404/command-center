@@ -5,7 +5,7 @@ export default function LiveBadge() {
                 <span className="absolute inline-flex w-full h-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-400" />
             </span>
-            Live
+            Livee
         </span>
     );
 }
